@@ -2,14 +2,18 @@ package com.test.ulesson.repository
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.test.ulesson.database.LessonDoa
 import com.test.ulesson.models.Lesson
 import com.test.ulesson.networking.ULessonApiService
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class Repository @Inject constructor(private val uLessonApi: ULessonApiService) {
+class Repository @Inject constructor(private val uLessonApi: ULessonApiService,
+                                     private val doa: LessonDoa, private val appScope: CoroutineScope) {
     private val tag = "Repository"
 
     fun getLiveLessonsTop(): MutableLiveData<Lesson>{
@@ -43,11 +47,16 @@ class Repository @Inject constructor(private val uLessonApi: ULessonApiService) 
         return data
     }
 
-    fun getMyLessons(): MutableLiveData<Lesson>{
-        val data = MutableLiveData<Lesson>()
+    fun setMyLessons(){
         uLessonApi.getMyLessons().enqueue(object: Callback<Lesson> {
             override fun onResponse(call: Call<Lesson>, response: Response<Lesson>) {
-                data.value = response.body()
+                if(response.body()?.success==true && response.body()?.data != null){
+                    val lesson = response.body()
+                    appScope.launch {
+                        doa.deleteAll()
+                        doa.insertAll(*lesson?.data!!.toTypedArray())
+                    }
+                }
                 Log.d(tag, "onResponseLessonMy: ${response.body()}")
             }
 
@@ -55,7 +64,6 @@ class Repository @Inject constructor(private val uLessonApi: ULessonApiService) 
                 Log.d(tag, "onFailure: lessonsMy - ${t.message}")
             }
         })
-    return data
     }
 
 }
