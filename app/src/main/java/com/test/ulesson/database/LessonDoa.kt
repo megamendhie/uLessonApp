@@ -21,4 +21,7 @@ interface LessonsDoa {
 
     @Query("SELECT * FROM myLessons_table")
     fun getMyLessons(id: String): MutableLiveData<Lesson>
+
+    @Query("DELETE FROM myLessons_table")
+    suspend fun deleteAll()
 }
