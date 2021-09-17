@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/btnLive"
+    android:layout_width="wrap_content"
+    android:layout_height="30dp"
+    android:paddingStart="5dp"
+    android:paddingEnd="5dp"
+    android:background="@drawable/curved_bg_red"
+    android:gravity="center_vertical"
+    android:textColor="@color/white"
+    android:textStyle="bold"
+    android:textSize="16sp"
+    android:drawablePadding="2dp"
+    android:drawableLeft="@drawable/ic_dot_24"
+    android:drawableTint="@color/white"
+    android:text="LIVE"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"/>

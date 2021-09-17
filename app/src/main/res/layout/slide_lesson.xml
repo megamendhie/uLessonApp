@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="12dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="230dp">
+
+        <ImageView
+            android:id="@+id/imgDisplay"
+            android:scaleType="centerCrop"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp">
+
+            <TextView
+                android:id="@+id/btnLive"
+                android:layout_width="75dp"
+                android:layout_height="30dp"
+                android:background="@drawable/curved_bg_red"
+                android:gravity="center_vertical"
+                android:layout_marginStart="10dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="16sp"
+                android:drawablePadding="2dp"
+                android:drawableLeft="@drawable/ic_dot_24"
+                android:drawableTint="@color/white"
+                android:text="LIVE"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginLeft="10dp" />
+
+            <TextView
+                android:id="@+id/txtTopic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/btnLive"
+                app:layout_constraintStart_toStartOf="parent"
+                tools:text="Materials - Metals n Non Metals"/>
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:drawablePadding="6dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/txtTopic"
+                app:layout_constraintStart_toStartOf="parent"
+                android:drawableTint="@color/white"
+                android:drawableStart="@drawable/ic_time_24"
+                android:drawableLeft="@drawable/ic_time_24"
+                tools:text="Today, 3:30 PM"/>
+
+            <ImageView
+                android:id="@+id/imgDot"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_dot_24"
+                android:layout_marginStart="8dp"
+                app:layout_constraintTop_toTopOf="@id/txtTime"
+                app:layout_constraintBottom_toBottomOf="@id/txtTime"
+                app:layout_constraintStart_toEndOf="@id/txtTime"
+                app:tint="@color/white"
+                android:layout_marginLeft="8dp" />
+
+            <TextView
+                android:id="@+id/txtName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/white"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="@id/txtTime"
+                app:layout_constraintBottom_toBottomOf="@id/txtTime"
+                app:layout_constraintStart_toEndOf="@id/imgDot"
+                tools:text="Gabriella Adeboye"
+                android:layout_marginLeft="8dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</androidx.cardview.widget.CardView>

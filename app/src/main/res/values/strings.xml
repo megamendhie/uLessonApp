@@ -2,4 +2,14 @@
     <string name="app_name">uLesson</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <array name="subject_type">
+        <item>ALL SUBJECTS</item>
+        <item>MATHEMATICS</item>
+        <item>ENGLISH</item>
+        <item>CHEMISTRY</item>
+        <item>BIOLOGY</item>
+        <item>PHYSICS</item>
+    </array>
 </resources>
